@@ -1,4 +1,4 @@
-# SDXL-DiscordBot
+# SDXL-DiscordBot - guimdo1999 Modification
 
 
 <p float="left" align="center">
@@ -11,36 +11,58 @@
 
 <div align="center">
   
-[![Support my work](https://i.imgur.com/NOoWZ8G.png)](https://ko-fi.com/dab_bot)
+![Support aarons work](https://ko-fi.com/dab_bot)
 
 </div>
 
 
-## Key Features:
+<div align="center">
+  
+This fork adds more functionality, adding a Help command, checkpoints command and allows for the user to modify more freely the workflow. 
 
-1. **Text-to-Image Generation**: Convert your ideas into visuals. Just type in a positive+negative prompt, and the bot will generate an image that matches your text.
+</div>
 
-2. **Variations on Outputs**: Not satisfied with the first image? The bot can produce multiple variations, giving you the freedom to choose the one that fits best.
 
-3. **Upscale Outputs**: Enhance the clarity of generated images by upscaling them. Perfect for when you need higher resolution visuals.
+## Key Features (upgrading AARONS bot):
 
-4. **Integration Flexibility**: 
+1. **MAIN CHANGES**: This fork adds more functionality, adding a Help command, checkpoints command and allows for the user to modify more freely the workflow.
+
+2. **MORE FREEDOM**: The user can choose a checkpoint available, steps, cfg, sampler and scheduler. If they only choose a checkpoint, the default config will be used for it.
+
+3. **Text-to-Image Generation**: Convert your ideas into visuals. Just type in a positive+negative prompt, and the bot will generate an image that matches your text.
+
+4. **Variations on Outputs**: Not satisfied with the first image? The bot can produce multiple variations, giving you the freedom to choose the one that fits best.
+
+5. **Upscale Outputs**: Enhance the clarity of generated images by upscaling them. Perfect for when you need higher resolution visuals.
+
+6. **Integration Flexibility**: 
    - **Public Stability AI API**: For those who prefer a hassle-free setup, the bot can integrate seamlessly with the public Stability AI API. All you need is your API key.
    - **Local ComfyUI System**: For users who prioritize data privacy or want to work offline, the bot can run locally using the ComfyUI system.
 
-5. **Custom Workflows with ComfyUI**: The bot comes with default configurations that cater to most users. However, if you have specific needs, it supports custom ComfyUI workflows, allowing you to tailor the bot's operations to your exact requirements.
+7. **Custom Workflows with ComfyUI**: The bot comes with default configurations that cater to most users. However, if you have specific needs, it supports custom ComfyUI workflows, allowing you to tailor the bot's operations to your exact requirements.
+
+8.  **Genplus**: There is anoter workflow command to generate with detailers (genplus).
+
+9.  The upscale workflow uses ultimate SD Upscale and detailers.
+
+10.  There is a button to separate the image from the collage and send it to the user.
 
 ## Quick Start
 
 ### 1. **Download & Extract**
-- [Download the latest executable](https://github.com/dab-bot/ComfyUI-SDXL-DiscordBot/releases) suitable for your OS.
-- Extract the zip file to your desired location.
+
+I did not create any download, just download this repository, but in linux you can just execute the bot.py in a terminal and use it. Try installing any missing dependencies you encounter until it works. 
+- Python (Mandatory)
+- Know what you are doing (optional)
+
 
 ### 2. **Configuration**
 - Open `config.properties` using a text editor.
 - Set your Discord bot token: Find `[BOT][TOKEN]` and replace the placeholder with your token.
 
 ### 3. **Choose Your Source**
+
+- Understand the config.properties and you should be fine.
 
 #### Option A: **The Stability AI API**
 - Set your API key: Replace the placeholder in `[API][API_KEY]` with your StabilityAI API key.
