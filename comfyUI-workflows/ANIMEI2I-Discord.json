@@ -1,0 +1,307 @@
+{
+  "6": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "25",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "25": {
+    "inputs": {
+      "stop_at_clip_layer": -2,
+      "clip": [
+        "151",
+        1
+      ]
+    },
+    "class_type": "CLIPSetLastLayer",
+    "_meta": {
+      "title": "CLIP skip"
+    }
+  },
+  "26": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "25",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  },
+  "31": {
+    "inputs": {
+      "tile_size": 1024,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8,
+      "samples": [
+        "187",
+        0
+      ],
+      "vae": [
+        "65",
+        2
+      ]
+    },
+    "class_type": "VAEDecodeTiled",
+    "_meta": {
+      "title": "VAE Decode (Tiled)"
+    }
+  },
+  "65": {
+    "inputs": {
+      "ckpt_name": "anime/novaAnimeXL_ilV140.safetensors"
+    },
+    "class_type": "Checkpoint Loader (Simple)",
+    "_meta": {
+      "title": "Checkpoint Loader (Simple)"
+    }
+  },
+  "147": {
+    "inputs": {
+      "image": "clipspace/clipspace-painted-masked-1764542504934.png [input]"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "148": {
+    "inputs": {
+      "tile_size": 1024,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8,
+      "pixels": [
+        "147",
+        0
+      ],
+      "vae": [
+        "65",
+        2
+      ]
+    },
+    "class_type": "VAEEncodeTiled",
+    "_meta": {
+      "title": "VAE Encode (Tiled)"
+    }
+  },
+  "151": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": false,
+        "lora": "Neon_City.safetensors",
+        "strength": 1
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "65",
+        0
+      ],
+      "clip": [
+        "65",
+        1
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  },
+  "171": {
+    "inputs": {
+      "amount": 4,
+      "samples": [
+        "148",
+        0
+      ]
+    },
+    "class_type": "RepeatLatentBatch",
+    "_meta": {
+      "title": "Repeat Latent Batch"
+    }
+  },
+  "173": {
+    "inputs": {
+      "prefix": "[time(%H-%M-%S)]-",
+      "suffix": "",
+      "input": [
+        "179",
+        0
+      ]
+    },
+    "class_type": "SomethingToString",
+    "_meta": {
+      "title": "Seed to String"
+    }
+  },
+  "175": {
+    "inputs": {
+      "value": "DISCORD"
+    },
+    "class_type": "PrimitiveString",
+    "_meta": {
+      "title": "SFW or NSFW - First folder name"
+    }
+  },
+  "176": {
+    "inputs": {
+      "string_a": [
+        "175",
+        0
+      ],
+      "string_b": [
+        "173",
+        0
+      ],
+      "delimiter": "-"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "N/SFW-seed-time"
+    }
+  },
+  "177": {
+    "inputs": {
+      "string_a": [
+        "175",
+        0
+      ],
+      "string_b": "[time(%Y-%m-%d)]",
+      "delimiter": "/"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "SFW/MODEL"
+    }
+  },
+  "178": {
+    "inputs": {
+      "string_a": [
+        "176",
+        0
+      ],
+      "string_b": "final_output",
+      "delimiter": "_"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "179": {
+    "inputs": {
+      "images": [
+        "147",
+        0
+      ]
+    },
+    "class_type": "Image to Seed",
+    "_meta": {
+      "title": "Image to Seed"
+    }
+  },
+  "181": {
+    "inputs": {
+      "output_path": [
+        "177",
+        0
+      ],
+      "filename_prefix": [
+        "178",
+        0
+      ],
+      "filename_delimiter": "_",
+      "filename_number_padding": 4,
+      "filename_number_start": "false",
+      "extension": "png",
+      "dpi": 300,
+      "quality": 100,
+      "optimize_image": "true",
+      "lossless_webp": "false",
+      "overwrite_mode": "false",
+      "show_history": "false",
+      "show_history_by_prefix": "true",
+      "embed_workflow": "true",
+      "show_previews": "true",
+      "images": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "Image Save",
+    "_meta": {
+      "title": "Image Save"
+    }
+  },
+  "183": {
+    "inputs": {
+      "value": 20
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Steps"
+    }
+  },
+  "185": {
+    "inputs": {
+      "Number": "5"
+    },
+    "class_type": "Float",
+    "_meta": {
+      "title": "CFG"
+    }
+  },
+  "187": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 0,
+      "steps": [
+        "183",
+        0
+      ],
+      "cfg": [
+        "185",
+        0
+      ],
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "start_at_step": 0,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "151",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "26",
+        0
+      ],
+      "latent_image": [
+        "171",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced)"
+    }
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "2": {
+    "inputs": {
+      "text": [
+        "60",
+        0
+      ],
+      "clip": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": [
+        "62",
+        0
+      ],
+      "clip": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative prompt"
+    }
+  },
+  "4": {
+    "inputs": {
+      "stop_at_clip_layer": -2,
+      "clip": [
+        "79",
+        1
+      ]
+    },
+    "class_type": "CLIPSetLastLayer",
+    "_meta": {
+      "title": "CLIP skip"
+    }
+  },
+  "6": {
+    "inputs": {
+      "width": 832,
+      "height": 1216,
+      "batch_size": 4
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Image Size and batch"
+    }
+  },
+  "18": {
+    "inputs": {
+      "string_a": [
+        "22",
+        0
+      ],
+      "string_b": "[time(%Y-%m-%d)]",
+      "delimiter": "/"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "SFW/MODEL"
+    }
+  },
+  "22": {
+    "inputs": {
+      "value": "DISCORD"
+    },
+    "class_type": "PrimitiveString",
+    "_meta": {
+      "title": "SFW or NSFW - First folder name"
+    }
+  },
+  "23": {
+    "inputs": {
+      "tile_size": 1536,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8,
+      "samples": [
+        "169",
+        0
+      ],
+      "vae": [
+        "158",
+        2
+      ]
+    },
+    "class_type": "VAEDecodeTiled",
+    "_meta": {
+      "title": "VAE Decode (Tiled)"
+    }
+  },
+  "27": {
+    "inputs": {
+      "text": "DISCORD/[time(%Y-%m-%d)]",
+      "anything": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "easy showAnything",
+    "_meta": {
+      "title": "Show Any"
+    }
+  },
+  "56": {
+    "inputs": {
+      "string_a": [
+        "107",
+        0
+      ],
+      "string_b": [
+        "110",
+        0
+      ],
+      "delimiter": "-"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "60": {
+    "inputs": {
+      "string_a": "embedding:lazypos, art, classroom, noon, sun rays",
+      "string_b": "",
+      "delimiter": ", "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate Positive"
+    }
+  },
+  "62": {
+    "inputs": {
+      "string_a": "",
+      "string_b": "\n",
+      "delimiter": ", "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate Negative"
+    }
+  },
+  "79": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": false,
+        "lora": "age_slider_v2.safetensors",
+        "strength": 1
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "MoriiMee_Gothic_Niji_Style_Illustrious_r1.safetensors",
+        "strength": 0.5
+      },
+      "lora_3": {
+        "on": false,
+        "lora": "Semi-realism_illustrious.safetensors",
+        "strength": 0.5
+      },
+      "lora_4": {
+        "on": false,
+        "lora": "Realism Lora By Stable Yogi_V3_Lite.safetensors",
+        "strength": 0.8
+      },
+      "lora_5": {
+        "on": false,
+        "lora": "BetterPussyV0.1.0-LR00025-Locan.safetensors",
+        "strength": 1
+      },
+      "lora_6": {
+        "on": false,
+        "lora": "dmd2_sdxl_4step_lora_fp16.safetensors",
+        "strength": 1
+      },
+      "lora_7": {
+        "on": false,
+        "lora": "sdxl_lightning_8step_lora.safetensors",
+        "strength": 1
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "158",
+        0
+      ],
+      "clip": [
+        "158",
+        1
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  },
+  "89": {
+    "inputs": {
+      "value": 24
+    },
+    "class_type": "easy int",
+    "_meta": {
+      "title": "Steps"
+    }
+  },
+  "91": {
+    "inputs": {
+      "Number": "4"
+    },
+    "class_type": "Float",
+    "_meta": {
+      "title": "cfg"
+    }
+  },
+  "95": {
+    "inputs": {
+      "seed": 842361049150465
+    },
+    "class_type": "CR Seed",
+    "_meta": {
+      "title": "🌱 CR Seed"
+    }
+  },
+  "106": {
+    "inputs": {
+      "prefix": "[time(%H-%M-%S)]-",
+      "suffix": "",
+      "input": [
+        "95",
+        0
+      ]
+    },
+    "class_type": "SomethingToString",
+    "_meta": {
+      "title": "Seed to String"
+    }
+  },
+  "107": {
+    "inputs": {
+      "string_a": [
+        "22",
+        0
+      ],
+      "string_b": [
+        "106",
+        0
+      ],
+      "delimiter": "-"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "N/SFW-seed-time"
+    }
+  },
+  "110": {
+    "inputs": {
+      "value": "Image"
+    },
+    "class_type": "PrimitiveString",
+    "_meta": {
+      "title": "name of photo"
+    }
+  },
+  "117": {
+    "inputs": {
+      "string_a": [
+        "22",
+        0
+      ],
+      "string_b": "%date",
+      "delimiter": "/"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Path for Upscale"
+    }
+  },
+  "120": {
+    "inputs": {
+      "string_a": [
+        "56",
+        0
+      ],
+      "string_b": "final_output",
+      "delimiter": "_"
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Upscale Name"
+    }
+  },
+  "158": {
+    "inputs": {
+      "ckpt_name": "animeBackgrounds_10.safetensors"
+    },
+    "class_type": "Checkpoint Loader (Simple)",
+    "_meta": {
+      "title": "Checkpoint Loader (Simple)"
+    }
+  },
+  "169": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": [
+        "95",
+        0
+      ],
+      "steps": [
+        "89",
+        0
+      ],
+      "cfg": [
+        "91",
+        0
+      ],
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "79",
+        0
+      ],
+      "positive": [
+        "2",
+        0
+      ],
+      "negative": [
+        "3",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced)"
+    }
+  },
+  "292": {
+    "inputs": {
+      "output_path": [
+        "27",
+        0
+      ],
+      "filename_prefix": [
+        "120",
+        0
+      ],
+      "filename_delimiter": "_",
+      "filename_number_padding": 4,
+      "filename_number_start": "false",
+      "extension": "png",
+      "dpi": 300,
+      "quality": 100,
+      "optimize_image": "true",
+      "lossless_webp": "false",
+      "overwrite_mode": "false",
+      "show_history": "false",
+      "show_history_by_prefix": "true",
+      "embed_workflow": "true",
+      "show_previews": "true",
+      "images": [
+        "23",
+        0
+      ]
+    },
+    "class_type": "Image Save",
+    "_meta": {
+      "title": "Image Save"
+    }
+  }
+}
