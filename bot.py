@@ -57,6 +57,7 @@ MODEL_DEFAULTS = {
     "Real/ponyRealism_V23ULTRA.safetensors": {"steps": 30, "cfg": 6.0, "sampler": "dpmpp_2m_sde", "scheduler": "karras"},
     "Real/juggernautXL_ragnarokBy.safetensors":{"steps": 30, "cfg": 5, "sampler": "dpmpp_2m_sde", "scheduler": "karras"},
     "Real/DreamShaper_8_pruned.safetensors":{"steps": 30, "cfg": 7, "sampler": "dpmpp_2m", "scheduler": "karras"},
+    "anime/novaPixelsXL_v30.safetensors":{"steps": 30, "cfg": 5, "sampler": "euler_ancestral", "scheduler": "normal"},
 }
 
 GLOBAL_FALLBACK = {"steps": 25, "cfg": 6.0, "sampler": "euler_ancestral", "scheduler": "normal"}
@@ -637,7 +638,10 @@ async def checkpoints_command(interaction: discord.Interaction):
         "[Link Civitai](https://civitai.com/models/827184/wai-illustrious-sdxl) | *Baseado no Illustrious, traço consistente.*\n\n"
         
         "**• Ramthrust's Alchemy Mix**\n"
-        "[Link Civitai](https://civitai.com/models/1465491/ramthrusts-nsfw-pink-alchemy-mix) | *Mix específico (foco em NSFW/Pink).*"
+        "[Link Civitai](https://civitai.com/models/1465491/ramthrusts-nsfw-pink-alchemy-mix) | *Mix específico (foco em NSFW/Pink).*\n\n"
+        
+        "**• Nova Pixels XL**\n"
+        "[Link Civitai](https://civitai.com/models/1856313/nova-pixels-xl) | *Baseado no Nova Anime, mas com foco em imagens pixeladas / Sprite arts.*"
     )
     embed.add_field(name="🎨 Anime & Ilustração (Parte 2)", value=anime_list_2, inline=False)
 
